@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+<script type='text/javascript' src='gameboard2.js'></script>
+<script type='text/javascript' src='cookieset.js'></script>
+<script type="text/javascript">
+
+	if ((navigator.userAgent.indexOf('/iPhone/i') != -1) || (navigator.userAgent.indexOf('/iPod/i') != -1)) {
+		document.location = "idontfail.html";
+	}
+
+	var device = "Desktop Browser";
+	setDevice(device){
+		$('.Device').text(device);
+	}
+
+ $(document).ready(function(){ 
+    $(".bodycontent").show();
+    setDevice(device);
+ });
+ 
+ //document.cookie ='ppkcookie1=testcookie; expires=Thu, 2 Aug 2013 20:47:11 UTC; path=/'
+	
+	
+</script>
+</head>
+<body>
+
+<center>
+
+	<B><div class="LevelText" id="DisplayLevel" style="display:block" >DON'T FAIL</div></B>
+
+	<div id="selform" style="display:block">
+	<button class="playbutton" onclick="playGame(1, 1, 2)" />PLAY</button>
+    </div>
+
+	<div id="timer" class="clock" style="display:block"></div>
+
+    <div id="gameform" style="display:none; height:0px">
+     <div class="board" id="buttonform"></div>
+	</div>
+	
+	<H2><div class="info" id="info" style="display:block" >Press the "red" button before the time runs out!</div></H2>
+	
+	<H1><div class="failed" id="failed" style="display:none" >FAILED</div></H1>
+
+</center>
+
+</body>
+</html>
