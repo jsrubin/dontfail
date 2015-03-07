@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<link rel="stylesheet" href="istyle.css" type="text/css" />
+
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+<script type='text/javascript' src='gameboard.js'></script>
+<script type="text/javascript">
+
+	if ((navigator.userAgent.indexOf('/iPhone/i') != -1) || (navigator.userAgent.indexOf('/iPod/i') != -1)) {
+		document.location = "idontfail.html";
+	}
+
+	var device = "Desktop Browser";
+//	var agent=navigator.userAgent.toLowerCase();
+//	var is_iphone = ((agent.indexOf('iphone')!=-1);
+//	if (is_iphone) { device = "iPhone"; }
+	//document.getElementById('device').innerHTML = device;
+	setDevice(device){
+		$('.Device').text(device);
+	}
+
+ $(document).ready(function(){ 
+    //$("button, input[type=submit]").css("background-color","red");
+    $(".bodycontent").show();
+    setDevice(device);
+ });
+ 
+</script>
+</head>
+<body>
+
+<center>
+
+	<B><div class="LevelText" id="DisplayLevel" style="display:block" >LEVEL 0</div></B>
+
+	<div id="selform" style="display:block">
+	<button class="playbutton" onclick="playGame(1)" />PLAY</button>
+    </div>
+
+	<div id="timer" class="clock" style="display:block"></div>
+
+    <div id="gameform" style="display:none; height:0px">
+     <div class="board" id="buttonform"></div>
+
+</center>
+<!--  <div id="gameTable" style="display:block; height:0px" >
+<table border=0 width="100%" >
+    <tr><td align="center">
+        <div id="gameform" style="display:none"><center>
+        <fieldset border=1 width="100%" ><div class="board" id="buttonform"></div></fieldset>
+        </center>
+        </div>
+    </td></tr>
+</table>
+</div>
+-->
+
+<H1><center><div class="failed" id="failed" style="display:none" >FAILED</div></center></H1>
+</div>
+
+</body>
+</html>
