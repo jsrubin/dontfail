@@ -113,8 +113,10 @@
         	nextcount = btncount + 1;
         }
         var nextloop = btnloop + 1;
-        var X = document.width;
-        var Y = document.height;
+        var X = $(document).width();
+        var Y = $(document).height();
+        
+
         var btnwidth = (X/nextcount)-((X/nextcount)*.1);
         var btnheight = (Y/nextcount)-((Y/nextcount)*.2);
         var num = Math.pow(nextcount,2);
