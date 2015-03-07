@@ -1,4 +1,7 @@
+console.log('cookie js....');
+
 function createCookie(name,value,days) {
+	console.log('createCookie....');
 	if (days) {
 		var date = new Date();
 		date.setTime(date.getTime()+(days*24*60*60*1000));
@@ -9,6 +12,7 @@ function createCookie(name,value,days) {
 }
 
 function readCookie(name) {
+	console.log('readCookie....');
 	var nameEQ = name + "=";
 	var ca = document.cookie.split(';');
 	for(var i=0;i < ca.length;i++) {
@@ -20,5 +24,6 @@ function readCookie(name) {
 }
 
 function eraseCookie(name) {
+	console.log('eraseCookie....');
 	createCookie(name,"",-1);
 }
