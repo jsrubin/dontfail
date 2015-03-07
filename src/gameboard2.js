@@ -4,9 +4,12 @@
     var start = new Date().getTime();
     var interval = setInterval("timer("+timeout+","+start+","+level+")", 100);
     clearInterval(interval);
-    setTableHeight();
-    
+    // setTableHeight();
+    console.log('lets go...');
+
+
     function playGame(level, btnloop, btncount){
+        console.log('playGame...');
         lvlobj=document.getElementById('failed');
         lvlobj.style.display='none';
         infoobj=document.getElementById('info');
@@ -19,6 +22,7 @@
     }
     
     function timer(time, start, level){
+        console.log('timer...');
         var now = time-(new Date().getTime()-start);
         if( now <= 1) {
             clearInterval(interval);
@@ -28,11 +32,13 @@
     }
     
     function pickRandom(btn){
+        console.log('pickRandom...');
         var num = Math.pow(btn,2)-1;
         return Math.floor((Math.random()*num)+1);
     }
     
     function setLevelText(level){
+        console.log('setLevelText...');
         lvlobj=document.getElementById('DisplayLevel');
         lvlobj.style.display='block';
         var txt = "LEVEL " + (level-1);
@@ -40,6 +46,7 @@
     }
 
     function failed(level){
+        console.log('failed...');
         lvlobj=document.getElementById('selform');
         lvlobj.style.display='block';
         lvlobj=document.getElementById('failed');
@@ -55,6 +62,7 @@
     }
     
     function cookieSetter(level){
+        console.log('setColor...');
     	var x = readCookie('ppkcookie')
     	if (x) {
     		if( x < level ){
@@ -72,10 +80,12 @@
     }
     
     function checkDerNum(check){
+        console.log('checkDerNum...');
         $('.checkDer').text(check);
     }
     
     function setLevelTimer(level){
+        console.log('setLevelTimer...');
         if(level >= 16 && level < 24){
             timeout = 4000;
         }
@@ -88,6 +98,7 @@
     }
 
     function setColor(btnloop){
+        console.log('setColor...');
         if(btnloop == 1){
             $(".button").css("background-color","red");            
         }
@@ -103,6 +114,7 @@
     }
     
     function buildGameBoard(level, btnloop, btncount){
+        console.log('buildGameBoard...');
         var txt = '';
         var cnt = 0;
         btnobj = document.getElementById('buttonform');
@@ -113,8 +125,10 @@
         	nextcount = btncount + 1;
         }
         var nextloop = btnloop + 1;
-        var X = document.width;
-        var Y = document.height;
+        var X = $(document).width();
+        var Y = $(document).height();
+        
+
         var btnwidth = (X/nextcount)-((X/nextcount)*.1);
         var btnheight = (Y/nextcount)-((Y/nextcount)*.2);
         var num = Math.pow(nextcount,2);
@@ -139,6 +153,8 @@
     }
     
     function writeform(level, btnloop, btncount){
+        console.log('writeform...');
+        setTableHeight();
         var nextlevel = level + 1;
         gameobj = document.getElementById('gameform');
         buildGameBoard(level, btnloop, btncount);
@@ -151,8 +167,10 @@
     }
 
     function setTableHeight(){
+        console.log('setTableHeight...');
     	 gametableobj = document.getElementById('gameform');
-    	 var tblheight = document.height;
-    	 gametableobj.style.height=tblheight+"px";
+    	 var tblheight = $(document).height();
+         console.log(' .... tblheight is ' + tblheight);
+    	 gametableobj.style.height=tblheight+'px';
     }
  
