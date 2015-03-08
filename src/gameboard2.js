@@ -4,9 +4,19 @@
     var start = new Date().getTime();
     var interval = setInterval("timer("+timeout+","+start+","+level+")", 100);
     clearInterval(interval);
-    // setTableHeight();
     console.log('lets go...');
+	var tblheight = $(window).height();
+        var X = $(window).width();
+        var Y = tblheight;
 
+
+	function flashItem(){
+                  $('#Title')
+                    .fadeOut(150)
+                    .fadeIn(150)
+                    .fadeOut(150)
+                    .fadeIn(150)
+	}
 
     function playGame(level, btnloop, btncount){
         console.log('playGame...');
@@ -18,17 +28,21 @@
         writeform(level, btnloop, btncount);
         clearInterval(interval);
         interval = setInterval("timer("+timeout+","+start+","+level+")", 100);
-        
     }
     
     function timer(time, start, level){
-        console.log('timer...');
         var now = time-(new Date().getTime()-start);
-        if( now <= 1) {
+
+       //if( (now <= (time*.6)) && ((Math.floor(now/1000)) > 0) ) {
+	 //   		flashItem();
+	//} 
+	if( now <= 1) {
             clearInterval(interval);
             failed(level);
         }
-        else document.getElementById('timer').innerHTML = (Math.floor(now/1000))+" second(s)";
+        else{
+	    document.getElementById('timer').innerHTML = (Math.floor(now/1000)) + " second(s)";
+	}
     }
     
     function pickRandom(btn){
@@ -125,8 +139,8 @@
         	nextcount = btncount + 1;
         }
         var nextloop = btnloop + 1;
-        var X = $(document).width();
-        var Y = $(document).height();
+//        var X = $(document).width();
+ //       var Y = $(document).height();
         
 
         var btnwidth = (X/nextcount)-((X/nextcount)*.1);
@@ -169,7 +183,7 @@
     function setTableHeight(){
         console.log('setTableHeight...');
     	 gametableobj = document.getElementById('gameform');
-    	 var tblheight = $(document).height();
+//    	 var tblheight = $(document).height();
          console.log(' .... tblheight is ' + tblheight);
     	 gametableobj.style.height=tblheight+'px';
     }
